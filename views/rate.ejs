@@ -17,6 +17,31 @@
         }
     </style>
 <script>
+
+function getDropDownValues(val)
+{
+    if (val == 1)
+    {
+        alert('one');
+    }
+    if (val == 2)
+    {
+        alert('two');
+    }
+    if (val == 3)
+    {
+        alert('three');
+    }
+    if (val == 4)
+    {
+        alert('four');
+    }
+ 
+
+    
+}
+
+
 function calculateRate()
 {
   var postage = 1.00;
@@ -43,16 +68,16 @@ function calculateRate()
                     <label for="optradio">Select Postage Type:</label>
                     </br>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Letters (Stamped)
+                        <input type="radio" name="optradio" value='1' onclick="getDropDownValues(this.value)">Letters (Stamped)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Letters (Metered)
+                        <input type="radio" name="optradio" value='2' onclick="getDropDownValues(this.value)">Letters (Metered)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Large Envelopes (Flats)
+                        <input type="radio" name="optradio" value='3' onclick="getDropDownValues(this.value)">Large Envelopes (Flats)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Parcels
+                        <input type="radio" name="optradio" value='4' onclick="getDropDownValues(this.value)">Parcels
                     </label>
                 <h2>Step 2</h2>
                     <div class="form-group col-sm-2">
