@@ -53,6 +53,14 @@ app.get('/post/:id', (req, res) => {
   })
 })
 
+//get rate page
+app.get('/getrate', (req, res) => {
+  // render `home.ejs` with the list of posts
+  res.render('rate', { posts: posts })
+})
+
+
+
 app.listen(8080)
 
 console.log('listening on port 8080')
