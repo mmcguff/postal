@@ -12,7 +12,7 @@
         }
 
         .jumbotron {
-          margin-top: 10px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -20,10 +20,51 @@
 <body>
     <div class="container">
         <%- include('partials/navbar') %>
-        <div class="jumbotron">
-            <h1>Postal Rate Calculator</h1>
-            <p class="lead">This is the rate veiw</p>
-        </div>
+            <div class="jumbotron">
+                <h1>Postal Rate Calculator</h1>
+                <p class="lead">This is the rate veiw</p>
+            </div>
+
+            <div class="container">
+                <h2>Step 1</h2>
+                <form>
+                    <label for="optradio">Select Postage Type:</label>
+                    </br>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">Letters (Stamped)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">Letters (Metered)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">Large Envelopes (Flats)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio">Parcels
+                    </label>
+                </form>
+
+                <h2>Step 2</h2>
+                <form>
+                    <div class="form-group col-sm-2">
+                        <label for="sel1">Select Weight (in oz):</label>
+                        <select class="form-control" id="sel1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                </form>
+                </br>
+                
+                <form>
+                        
+                    <div class="panel panel-default col-sm-1">
+                       <label for="price">Price:</label>
+                        <div class="panel-body" id ="price">$5.00</div>
+                </form>
+                </div>
 
 
 </body>
