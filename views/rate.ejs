@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Node.js Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="localhost:8080/scripts/calc.js"></script>
     <style>
         body {
             padding-top: 20px;
@@ -15,6 +16,17 @@
             margin-top: 10px;
         }
     </style>
+<script>
+function calculateRate()
+{
+  var postage = 1.00;
+
+//alert('working');
+  document.getElementById('price').innerHTML = '$' +postage.toFixed(2);
+} 
+
+
+</script>
 </head>
 
 <body>
@@ -42,13 +54,10 @@
                     <label class="radio-inline">
                         <input type="radio" name="optradio">Parcels
                     </label>
-                </form>
-
                 <h2>Step 2</h2>
-                <form>
                     <div class="form-group col-sm-2">
                         <label for="sel1">Select Weight (in oz):</label>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="sel1" onchange="calculateRate()">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
