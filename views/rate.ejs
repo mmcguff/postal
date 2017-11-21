@@ -16,17 +16,168 @@
             margin-top: 10px;
         }
     </style>
-<script>
-function calculateRate()
-{
-  var postage = 1.00;
+    <script>
 
-//alert('working');
-  document.getElementById('price').innerHTML = '$' +postage.toFixed(2);
-} 
+        var _mailType;
+
+        function getDropValues(mailType) {
+        
+            var m1 = document.getElementById("mail_1");
+            var m2 = document.getElementById("mail_2");
+            
+            //if mailtype is 1 or 2 then display mail_1
+            if(mailType == '1' || mailType == '2')
+            {
+                m1.style.display = "block";
+                m2.style.display = "none";
+            }
+
+            //if mailtype is 3 or 4 then display mail_2
+            if(mailType == '3' || mailType == '4')
+            {
+                m1.style.display = "none";
+                m2.style.display = "block";
+            }
+            
+            var weight = document.getElementById('oz').value;
+            _mailType = mailType;
+            alert(_mailType);
+            calculateRate(_mailType, weight);
+        }
+
+        function calculateRate(mailType, weight) {
+           if(mailType == '1')
+           {
+            switch(weight) 
+            {
+                case "1":
+                document.getElementById('price').innerHTML = '$0.49';
+                break;
+                case "2":
+                document.getElementById('price').innerHTML = '$0.70';
+                break;
+                case "3":
+                document.getElementById('price').innerHTML = '$0.91';
+                break;
+                case "3.5":
+                document.getElementById('price').innerHTML = '$1.12';
+                break;
+            }
+
+           }
+
+           if(mailType == '2')
+           {
+            switch(weight) 
+            {
+                case "1":
+                document.getElementById('price').innerHTML = '$0.46';
+                break;
+                case "2":
+                document.getElementById('price').innerHTML = '$0.67';
+                break;
+                case "3":
+                document.getElementById('price').innerHTML = '$0.88';
+                break;
+                case "3.5":
+                document.getElementById('price').innerHTML = '$1.09';
+                break;
+            }
+
+           }
+
+           if(mailType == '3')
+           {
+            switch(weight) 
+            {
+                case "1":
+                document.getElementById('price').innerHTML = '$0.98';
+                break;
+                case "2":
+                document.getElementById('price').innerHTML = '$1.19';
+                break;
+                case "3":
+                document.getElementById('price').innerHTML = '$1.40';
+                break;
+                case "4":
+                document.getElementById('price').innerHTML = '$1.61';
+                break;
+                case "5":
+                document.getElementById('price').innerHTML = '$1.82';
+                break;
+                case "6":
+                document.getElementById('price').innerHTML = '$2.03';
+                break;
+                case "7":
+                document.getElementById('price').innerHTML = '$2.24';
+                break;
+                case "8":
+                document.getElementById('price').innerHTML = '$2.45';
+                break;
+                case "9":
+                document.getElementById('price').innerHTML = '$2.66';
+                break;
+                case "10":
+                document.getElementById('price').innerHTML = '$2.87';
+                break;
+                case "11":
+                document.getElementById('price').innerHTML = '$3.08';
+                break;
+                case "12":
+                document.getElementById('price').innerHTML = '$3.29';
+                break;
+                case "13":
+                document.getElementById('price').innerHTML = '$3.50';
+                break;
+            }
+
+           }
+           
+           if(mailType == '4')
+           {
+            switch(weight) 
+            {
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                document.getElementById('price').innerHTML = '$3.00';
+                break;
+                case "5":
+                document.getElementById('price').innerHTML = '$3.16';
+                break;
+                case "6":
+                document.getElementById('price').innerHTML = '$3.32';
+                break;
+                case "7":
+                document.getElementById('price').innerHTML = '$3.48';
+                break;
+                case "8":
+                document.getElementById('price').innerHTML = '$3.64';
+                break;
+                case "9":
+                document.getElementById('price').innerHTML = '$3.80';
+                break;
+                case "10":
+                document.getElementById('price').innerHTML = '$3.96';
+                break;
+                case "11":
+                document.getElementById('price').innerHTML = '$4.19';
+                break;
+                case "12":
+                document.getElementById('price').innerHTML = '$4.36';
+                break;
+                case "13":
+                document.getElementById('price').innerHTML = '$4.53';
+                break;
+            }
+
+           }
+
+        }
 
 
-</script>
+    </script>
 </head>
 
 <body>
@@ -43,39 +194,53 @@ function calculateRate()
                     <label for="optradio">Select Postage Type:</label>
                     </br>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Letters (Stamped)
+                        <input type="radio" name="optradio" value="1" onclick="getDropValues(this.value)">Letters (Stamped)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Letters (Metered)
+                        <input type="radio" name="optradio" value="2" onclick="getDropValues(this.value)">Letters (Metered)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Large Envelopes (Flats)
+                        <input type="radio" name="optradio" value="3" onclick="getDropValues(this.value)">Large Envelopes (Flats)
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Parcels
+                        <input type="radio" name="optradio" value="4" onclick="getDropValues(this.value)">Parcels
                     </label>
-                <h2>Step 2</h2>
-                    <div class="form-group col-sm-2">
-                        <label for="sel1">Select Weight (in oz):</label>
-                        <select class="form-control" id="sel1" onchange="calculateRate()">
+                    <h2>Step 2</h2>
+                    <div class="form-group col-sm-2" id='mail_1'>
+                        <label for="oz">Select Weight (in oz):</label>
+                        <select class="form-control" id="oz" onchange="calculateRate(_mailType,this.value)">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>3.5</option>
+                        </select>
+                        </br>
+                    </div>
+                    <div class="form-group col-sm-2" id='mail_2'>
+                        <label for="oz">Select Weight (in oz):</label>
+                        <select class="form-control" id="oz" onchange="calculateRate(_mailType,this.value)">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
                         </select>
+                        </br>
                     </div>
-                </form>
-                </br>
-                
-                <form>
-                        
-                    <div class="panel panel-default col-sm-1">
-                       <label for="price">Price:</label>
-                        <div class="panel-body" id ="price">$5.00</div>
-                </form>
-                </div>
-
-
+                    <form>
+                        <div class="panel panel-default col-sm-1">
+                            <label for="price">Price:</label>
+                            <div class="panel-body" id="price">$x.xx</div>
+                    </form>
+                    </div>
 </body>
 
 </html>
